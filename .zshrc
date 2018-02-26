@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/pbeam/.oh-my-zsh
+export ZSH=~/.oh-my-zsh
 export GOPATH=$HOME/repos/golang
 export GOBIN=$HOME/repos/golang/bin
 # Set name of the theme to load. Optionally, if you set this to "random"
