@@ -99,6 +99,7 @@ alias jump='ssh patrick.beam@172.29.1.48'
 alias bryteflow='ssh ec2-user@172.30.2.211'
 alias devfw='ssh -oKexAlgorithms=+diffie-hellman-group1-sha1 admin@10.27.176.7'
 alias knime='ssh -i ~/.ssh/infra.pem ubuntu@172.30.2.183'
+alias config='/usr/bin/git --git-dir=$HOME/.myconf/ --work-tree=$HOME'
 alias vim=nvim
 alias vi=nvim
 alias v=nvim
