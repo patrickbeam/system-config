@@ -1,5 +1,8 @@
 # System configuration using neovim and oh-my-zsh
 
+### Repo setup reference
+https://news.ycombinator.com/item?id=11071754
+
 ## Tracking of . files
 Tracking . files using github:
 ```shell
