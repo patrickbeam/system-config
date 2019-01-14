@@ -94,15 +94,16 @@ source <(kubectl completion zsh)
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias vpn='ssh openvpnas@172.29.0.10'
+alias vpn='ssh openvpnas@172.29.0.11'
 alias jump='ssh patrick.beam@172.29.1.48'
 alias bryteflow='ssh ec2-user@172.30.2.211'
 alias devfw='ssh -oKexAlgorithms=+diffie-hellman-group1-sha1 admin@10.27.176.7'
-alias knime='ssh -i ~/.ssh/infra.pem ubuntu@172.30.2.183'
+alias knime='ssh -i ~/.ssh/infra.pem ubuntu@172.30.2.156'
 alias config='/usr/bin/git --git-dir=$HOME/.myconf/ --work-tree=$HOME'
 alias vim=nvim
 alias vi=nvim
 alias v=nvim
+alias k='/usr/local/bin/kubectl'
 
 # -------------------------------------------------------------------
 # Git
@@ -136,3 +137,13 @@ if [ -f '/Users/pbeam/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/pbea
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/pbeam/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/pbeam/google-cloud-sdk/completion.zsh.inc'; fi
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/local/bin/vault vault
+
+# Functions
+function kssh() {
+   ip=$(echo $1 | sed -nE "s|([a-z-])*([0-9]{1,3})[.-]([0-9]{1,3})[.-]([0-9]{1,3})[.-]([0-9]{1,3})(.*)|\2.\3.\4.\5|p")
+   echo parsed target ip as $ip
+   ssh -i ~/.ssh/kubernetes.pem admin@$ip
+}
