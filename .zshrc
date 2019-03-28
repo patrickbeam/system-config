@@ -9,7 +9,8 @@ export GOBIN=$HOME/repos/golang/bin
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="agnoster"
-
+#source /usr/local/opt/powerlevel9k/powerlevel9k.zsh-theme
+PROMPT='p=>'
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -62,6 +63,8 @@ plugins=(
   kops
   terraform
   tmux
+  zsh-syntax-highlighting
+  vi-mode
 )
 source $ZSH/oh-my-zsh.sh
 source <(kubectl completion zsh)

@@ -47,6 +47,7 @@ Plug 'scrooloose/syntastic'
 Plug 'Yggdroot/indentLine'
 Plug 'avelino/vim-bootstrap-updater'
 Plug 'sheerun/vim-polyglot'
+Plug 'avakhov/vim-yaml'
 "Plug 'vim-pandoc/vim-pandoc'
 "Plug 'vim-pandoc/vim-pandoc-syntax'
 if isdirectory('/usr/local/opt/fzf')
@@ -79,6 +80,12 @@ Plug 'honza/vim-snippets'
 "" Color
 Plug 'tomasr/molokai'
 Plug 'iCyMind/NeoSolarized'
+
+"****************************************************************************
+"" Spell Checking for .md files
+"****************************************************************************
+autocmd BufRead,BufNewFile *.md setlocal spell
+
 
 "*****************************************************************************
 "" Custom bundles
