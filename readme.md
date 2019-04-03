@@ -49,3 +49,10 @@ rm -rf fonts
 ## Neovim Install
 
 ## 
+
+
+##Ubuntu Install
+
+###
+- Install instructions for neovim via ppa.
+  - sudo apt-get install python-dev python-pip python3-dev python3-pip
