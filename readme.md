@@ -51,7 +51,7 @@ rm -rf fonts
 ## 
 
 
-##Ubuntu Install
+## Ubuntu Install
 
 ###
 - Install instructions for neovim via ppa.
