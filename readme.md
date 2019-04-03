@@ -56,3 +56,8 @@ rm -rf fonts
 ###
 - Install instructions for neovim via ppa.
   - https://github.com/neovim/neovim/wiki/Installing-Neovim#ubuntu
+- After you have installed neovim you might get the following error.
+  ```
+  Unable to open swap file for "{filename}", recovery impossible
+  ```
+  This was caused by the following folder ~/.local/share/nvim/swap being owned by root.  Just change ownership to your username and relaunch neovim. 
