@@ -60,4 +60,4 @@ rm -rf fonts
   ```
   Unable to open swap file for "{filename}", recovery impossible
   ```
-  This was caused by the following folder ~/.local/share/nvim/swap being owned by root.  Just change ownership to your username and relaunch neovim. 
+  This was caused by the following folder `~/.local/share/nvim/swap` being owned by root.  Just change ownership to your username and relaunch neovim. 
