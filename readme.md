@@ -55,4 +55,4 @@ rm -rf fonts
 
 ###
 - Install instructions for neovim via ppa.
-  - sudo apt-get install python-dev python-pip python3-dev python3-pip
+  - https://github.com/neovim/neovim/wiki/Installing-Neovim#ubuntu
