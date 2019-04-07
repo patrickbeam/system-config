@@ -32,6 +32,7 @@ sudo apt-get install git
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 #Change Default shell
 chsh -s /bin/zsh
+exec $SHELL
 ```
 
 Once this is installed we want to switch to the agnoster theme because it's fancy!
