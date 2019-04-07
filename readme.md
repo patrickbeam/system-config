@@ -26,8 +26,13 @@ config push origin master
 Repo for oh-my-zsh can be found here. https://github.com/robbyrussell/oh-my-zsh
 
 Install with the following command via Curl
-
-`sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"`
+```
+sudo apt-get istall zsh
+sudo apt-get install git
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+#Change Default shell
+chsh -s /bin/zsh
+```
 
 Once this is installed we want to switch to the agnoster theme because it's fancy!
 
