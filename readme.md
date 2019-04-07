@@ -54,8 +54,10 @@ rm -rf fonts
 
 ## Neovim Install
 
-## 
-
+## TMUX
+```
+apt-get install tmux
+```
 
 ## Ubuntu Install
 
