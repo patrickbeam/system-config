@@ -63,7 +63,6 @@ plugins=(
   kops
   terraform
   tmux
-  zsh-syntax-highlighting
   vi-mode
 )
 source $ZSH/oh-my-zsh.sh
@@ -150,3 +149,5 @@ function kssh() {
    echo parsed target ip as $ip
    ssh -i ~/.ssh/kubernetes.pem admin@$ip
 }
+
+complete -o nospace -C /usr/local/bin/terraform terraform
