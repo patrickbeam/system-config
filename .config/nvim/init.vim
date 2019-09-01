@@ -154,6 +154,9 @@ set relativenumber
 let no_buffers_menu=1
 silent! colorscheme solarized
 
+autocmd BufRead,BufNewFile *.md setlocal spell
+set complete+=kspell
+
 set mousemodel=popup
 set t_Co=256
 set guioptions=egmrti
