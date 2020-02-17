@@ -3,8 +3,9 @@
 
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
-export GOPATH=$HOME/repos/golang
-export GOBIN=$HOME/repos/golang/bin
+export GOPATH=$HOME/workspace/go
+export GOBIN=$HOME/workspace/go/bin
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
@@ -70,6 +71,23 @@ source <(kubectl completion zsh)
 
 # User configuration
 
+function powerline_precmd() {
+    PS1="$($GOPATH/bin/powerline-go -error $? -shell zsh)"
+}
+
+function install_powerline_precmd() {
+  for s in "${precmd_functions[@]}"; do
+    if [ "$s" = "powerline_precmd" ]; then
+      return
+    fi
+  done
+  precmd_functions+=(powerline_precmd)
+}
+
+if [ "$TERM" != "linux" ]; then
+    install_powerline_precmd
+fi
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -96,11 +114,6 @@ source <(kubectl completion zsh)
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias vpn='ssh openvpnas@172.29.0.11'
-alias jump='ssh patrick.beam@172.29.1.48'
-alias bryteflow='ssh ec2-user@172.30.2.211'
-alias devfw='ssh -oKexAlgorithms=+diffie-hellman-group1-sha1 admin@10.27.176.7'
-alias knime='ssh -i ~/.ssh/infra.pem ubuntu@172.30.2.156'
 alias config='/usr/bin/git --git-dir=$HOME/.myconf/ --work-tree=$HOME'
 alias vim=nvim
 alias vi=nvim
@@ -134,12 +147,6 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/pbeam/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/pbeam/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/pbeam/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/pbeam/google-cloud-sdk/completion.zsh.inc'; fi
-
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/vault vault
 
@@ -151,3 +158,10 @@ function kssh() {
 }
 
 complete -o nospace -C /usr/local/bin/terraform terraform
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/pbeam/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/pbeam/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/pbeam/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/pbeam/google-cloud-sdk/completion.zsh.inc'; fi
+alias python=/usr/local/bin/python3.7

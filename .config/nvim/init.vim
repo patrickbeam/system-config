@@ -27,6 +27,9 @@ call plug#begin(expand('~/.config/nvim/plugged'))
 "*****************************************************************************
 "" Plug install packages
 "*****************************************************************************
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'scrooloose/nerdtree'
+Plug 'jistr/vim-nerdtree-tabs'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
@@ -34,14 +37,15 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
 Plug 'vim-scripts/grep.vim'
 Plug 'vim-scripts/CSApprox'
+Plug 'tomasiser/vim-code-dark'
 Plug 'Raimondi/delimitMate'
 Plug 'majutsushi/tagbar'
 Plug 'w0rp/ale'
 Plug 'Yggdroot/indentLine'
 Plug 'avelino/vim-bootstrap-updater'
 Plug 'sheerun/vim-polyglot'
+Plug 'alok/notational-fzf-vim'
 Plug 'tpope/vim-rhubarb' " required by fugitive to :Gbrowse
-Plug 'https://github.com/alok/notational-fzf-vim'
 
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
@@ -65,8 +69,7 @@ Plug 'honza/vim-snippets'
 
 "" Color
 Plug 'tomasr/molokai'
-Plug 'iCyMind/NeoSolarized'
-Plug 'dracula/vim', { 'as': 'dracula' }
+
 "*****************************************************************************
 "" Custom bundles
 "*****************************************************************************
@@ -140,22 +143,33 @@ let g:session_autoload = "no"
 let g:session_autosave = "no"
 let g:session_command_aliases = 1
 
-" Search paths for notational-vim
-let g:nv_search_paths = ['~/repos/notes', '~/repos/infra-documentation']
+let g:nv_search_paths = ['~/workspace/notes']
+
+"*****************************************************************************
+"" coc Config
+"*****************************************************************************
+
+let g:coc_global_extensions = [
+  \ 'coc-snippets',
+  \ 'coc-pairs',
+  \ 'coc-tsserver',
+  \ 'coc-eslint', 
+  \ 'coc-prettier', 
+  \ 'coc-json', 
+  \ ]
 
 "*****************************************************************************
 "" Visual Settings
 "*****************************************************************************
 syntax on
 set ruler
-set number
 set relativenumber
 
 let no_buffers_menu=1
-silent! colorscheme solarized
-
-autocmd BufRead,BufNewFile *.md setlocal spell
-set complete+=kspell
+""set t_Co=256
+""set t_ut=
+let g:codedark_conservative = 1
+silent! colorscheme codedark
 
 set mousemodel=popup
 set t_Co=256
@@ -208,7 +222,7 @@ if exists("*fugitive#statusline")
 endif
 
 " vim-airline
-let g:airline_theme = 'powerlineish'
+let g:airline_theme = 'codedark'
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#ale#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
@@ -296,6 +310,9 @@ augroup vimrc-make-cmake
   autocmd FileType make setlocal noexpandtab
   autocmd BufNewFile,BufRead CMakeLists.txt setlocal filetype=cmake
 augroup END
+
+"" gohtml
+au BufRead,BufNewFile *.gohtml set filetype=gohtmltmpl
 
 set autoread
 
