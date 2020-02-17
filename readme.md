@@ -9,6 +9,7 @@ Tracking . files using github:
 git init --bare $HOME/.myconf
 alias config='/usr/bin/git --git-dir=$HOME/.myconf/ --work-tree=$HOME'
 config config status.showUntrackedFiles no
+config remote add origin git@github.com:patrickbeam/system-config.git
 ```
 You should add the **alias** line to your .zshrc file.
 
