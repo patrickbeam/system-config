@@ -1,0 +1,12 @@
+{
+  "languageserver": {
+    "golang": {
+      "command": "/Users/pbeam/workspace/go/bin/gopls",
+      "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
+      "filetypes": ["go"],
+      "initializationOptions": {
+        "usePlaceholders": true
+      }
+    }
+  }
+}
