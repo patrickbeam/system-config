@@ -76,7 +76,7 @@ Plug 'tomasr/molokai'
 
 " go
 "" Go Lang Bundle
-Plug 'fatih/vim-go', {'do': ':GoInstallBinaries'}
+""Plug 'fatih/vim-go', {'do': ':GoInstallBinaries'}
 
 
 " python
