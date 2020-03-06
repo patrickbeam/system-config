@@ -1,5 +1,15 @@
 # System configuration using neovim and oh-my-zsh
 
+## Prerequisites
+Before we clone the config files there are few things that need to be installed first. 
+- https://brew.sh/
+    - `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
+- https://github.com/justjanne/powerline-go 
+    - `go get -u github.com/justjanne/powerline-go`
+- NVIM 
+    - `brew install neovim`
+    - ` python3 -m pip install --user --upgrade pynvim`
+
 ### Repo setup reference
 https://news.ycombinator.com/item?id=11071754
 

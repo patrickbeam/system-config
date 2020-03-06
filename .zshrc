@@ -6,6 +6,7 @@ export ZSH=~/.oh-my-zsh
 export GOPATH=$HOME/workspace/go
 export GOBIN=$HOME/workspace/go/bin
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
@@ -68,6 +69,7 @@ plugins=(
 )
 source $ZSH/oh-my-zsh.sh
 source <(kubectl completion zsh)
+fpath=($fpath ~/.zsh/completion)
 
 # User configuration
 
@@ -148,6 +150,8 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 autoload -U +X bashcompinit && bashcompinit
+autoload -U compinit
+compinit
 complete -o nospace -C /usr/local/bin/vault vault
 
 # Functions
@@ -158,10 +162,10 @@ function kssh() {
 }
 
 complete -o nospace -C /usr/local/bin/terraform terraform
+alias python=/usr/local/bin/python3.7
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/pbeam/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/pbeam/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f '/Users/b180365/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/b180365/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/pbeam/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/pbeam/google-cloud-sdk/completion.zsh.inc'; fi
-alias python=/usr/local/bin/python3.7
+if [ -f '/Users/b180365/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/b180365/google-cloud-sdk/completion.zsh.inc'; fi
