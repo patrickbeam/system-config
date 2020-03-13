@@ -73,3 +73,9 @@ apt-get install tmux
   ```
   sudo chown -R my_user:my_user ~/.local/share/nvim/swap
   ```
+### coc-vim
+- npm tools that need to be installed for each language server.
+  ```
+  npm install -g dockerfile-language-server-nodejs
+
+  ```
