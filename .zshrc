@@ -71,22 +71,22 @@ source <(kubectl completion zsh)
 
 # User configuration
 
-function powerline_precmd() {
-    PS1="$($GOPATH/bin/powerline-go -error $? -shell zsh)"
-}
-
-function install_powerline_precmd() {
-  for s in "${precmd_functions[@]}"; do
-    if [ "$s" = "powerline_precmd" ]; then
-      return
-    fi
-  done
-  precmd_functions+=(powerline_precmd)
-}
-
-if [ "$TERM" != "linux" ]; then
-    install_powerline_precmd
-fi
+#function powerline_precmd() {
+#    PS1="$($GOPATH/bin/powerline-go -error $? -shell zsh)"
+#}
+#
+#function install_powerline_precmd() {
+#  for s in "${precmd_functions[@]}"; do
+#    if [ "$s" = "powerline_precmd" ]; then
+#      return
+#    fi
+#  done
+#  precmd_functions+=(powerline_precmd)
+#}
+#
+#if [ "$TERM" != "linux" ]; then
+#    install_powerline_precmd
+#fi
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -140,7 +140,7 @@ alias gta='git tag -a -m'
 alias gf='git reflog'
 
 # leverage an alias from the ~/.gitconfig
-alias gh='git hist'
+#alias gh='git hist'
 
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
