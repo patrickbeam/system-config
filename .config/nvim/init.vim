@@ -54,7 +54,7 @@ call plug#end()
 "*****************************************************************************
 "" Basic Setup
 "*****************************************************************************
-let g:nv_search_paths = ['~/workspace/notes']
+let g:nv_search_paths = ['~/workspace/notes', '~/workspace/sre-documentation', '~/workspace/infra-documentation']
 let g:gofmt_exe = 'goimports'
 
 "" Encoding
