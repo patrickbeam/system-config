@@ -27,7 +27,7 @@ Plug 'alok/notational-fzf-vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'vim-airline/vim-airline'
 Plug 'tweekmonster/gofmt.vim'
-
+Plug 'preservim/nerdtree'
 
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
@@ -78,15 +78,15 @@ nnoremap <F5> "=strftime("%b %d, %Y")<CR>P
 "*****************************************************************************
 "" netrw settings for file browsing
 "*****************************************************************************
-let g:netrw_banner = 0
-let g:netrw_liststyle = 3
-let g:netrw_browse_split = 4
-let g:netrw_altv = 1
-let g:netrw_winsize = 25
-augroup ProjectDrawer
-  autocmd!
-  autocmd VimEnter * :Vexplore
-augroup END
+""let g:netrw_banner = 0
+""let g:netrw_liststyle = 3
+""let g:netrw_browse_split = 4
+""let g:netrw_altv = 1
+""let g:netrw_winsize = 25
+""augroup ProjectDrawer
+""  autocmd!
+""  autocmd VimEnter * :Vexplore
+""augroup END
 
 "*****************************************************************************
 "" Mappings

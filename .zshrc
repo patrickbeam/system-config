@@ -10,6 +10,7 @@ export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="agnoster"
+eval "$(starship init zsh)"
 #source /usr/local/opt/powerlevel9k/powerlevel9k.zsh-theme
 PROMPT='p=>'
 # Uncomment the following line to use case-sensitive completion.
