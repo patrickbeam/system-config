@@ -165,4 +165,5 @@ if [ -f '/Users/pbeam/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/pbeam/goo
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/pbeam/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/pbeam/google-cloud-sdk/completion.zsh.inc'; fi
-alias python=/usr/local/bin/python3.7
+alias python=/usr/local/bin/python3.8
+export PATH="/usr/local/opt/node@12/bin:$PATH"

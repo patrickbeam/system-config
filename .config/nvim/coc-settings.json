@@ -24,5 +24,10 @@
       "command": "docker-langserver",
       "filetypes": ["dockerfile"],
       "args": ["--stdio"]
+    },
+    "go": {
+      "disable": {
+        "workspaceFolders": false
+      }  
     }
 }
