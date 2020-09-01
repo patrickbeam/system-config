@@ -23,11 +23,12 @@ call plug#begin(expand('~/.config/nvim/plugged'))
 "" Plug install packages
 "*****************************************************************************
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'alok/notational-fzf-vim'
+"Plug 'alok/notational-fzf-vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'vim-airline/vim-airline'
 Plug 'tweekmonster/gofmt.vim'
 Plug 'preservim/nerdtree'
+" Plug 'neovim/nvim-lsp'
 
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
@@ -51,7 +52,7 @@ call plug#end()
 "*****************************************************************************
 "" Basic Setup
 "*****************************************************************************
-let g:nv_search_paths = ['~/workspace/notes', '~/workspace/sre-documentation', '~/workspace/infra-documentation']
+"let g:nv_search_paths = ['~/workspace/sre-documentation', '~/workspace/infra-documentation']
 let g:gofmt_exe = 'goimports'
 
 "" Encoding
@@ -75,6 +76,23 @@ set scrolloff=8
 
 nnoremap <F5> "=strftime("%b %d, %Y")<CR>P
 
+autocmd BufWritePre *.go :call CocAction('runCommand', 'editor.action.organizeImport')
+"*****************************************************************************
+"" nvim-lsp config
+"*****************************************************************************
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
+
+inoremap <silent><expr> <Tab>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<Tab>" :
+      \ coc#refresh()
+"lua << EOF
+"local nvim_lsp = require 'nvim_lsp'
+"require'nvim_lsp'.gopls.setup{}
+"EOF
 "*****************************************************************************
 "" netrw settings for file browsing
 "*****************************************************************************
