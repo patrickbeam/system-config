@@ -23,7 +23,7 @@ call plug#begin(expand('~/.config/nvim/plugged'))
 "" Plug install packages
 "*****************************************************************************
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-"Plug 'alok/notational-fzf-vim'
+Plug 'alok/notational-fzf-vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'vim-airline/vim-airline'
 Plug 'tweekmonster/gofmt.vim'
@@ -52,7 +52,7 @@ call plug#end()
 "*****************************************************************************
 "" Basic Setup
 "*****************************************************************************
-"let g:nv_search_paths = ['~/workspace/sre-documentation', '~/workspace/infra-documentation']
+let g:nv_search_paths = ['~/Dropbox/obsidian/', '~/workspace/infra-documentation']
 let g:gofmt_exe = 'goimports'
 
 "" Encoding
@@ -76,7 +76,7 @@ set scrolloff=8
 
 nnoremap <F5> "=strftime("%b %d, %Y")<CR>P
 
-autocmd BufWritePre *.go :call CocAction('runCommand', 'editor.action.organizeImport')
+"autocmd BufWritePre *.go :call CocAction('runCommand', 'editor.action.organizeImport')
 "*****************************************************************************
 "" nvim-lsp config
 "*****************************************************************************
@@ -89,6 +89,8 @@ inoremap <silent><expr> <Tab>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<Tab>" :
       \ coc#refresh()
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 "lua << EOF
 "local nvim_lsp = require 'nvim_lsp'
 "require'nvim_lsp'.gopls.setup{}
@@ -143,7 +145,7 @@ let g:gruvbox_contrast_dark = 'hard'
 "*****************************************************************************
 "" Abbreviations
 "*****************************************************************************
-"" no one is really happy until you have this shortcuts
+"" no one is really happy until you have these shortcuts
 cnoreabbrev W! w!
 cnoreabbrev Q! q!
 cnoreabbrev Qall! qall!

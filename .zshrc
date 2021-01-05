@@ -5,7 +5,16 @@
 export ZSH=~/.oh-my-zsh
 export GOPATH=$HOME/workspace/go
 export GOBIN=$HOME/workspace/go/bin
+export PATH=$PATH:/usr/local/go/bin
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+
+#AWS Config 
+export AWS_SESSION_TTL=12h
+export AWS_ASSUME_ROLE_TTL=1h
+
+#Tanzu Kubectl setup
+export GODEBUG=x509ignoreCN=0
+
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
@@ -72,35 +81,6 @@ source <(kubectl completion zsh)
 
 # User configuration
 
-#function powerline_precmd() {
-#    PS1="$($GOPATH/bin/powerline-go -error $? -shell zsh)"
-#}
-#
-#function install_powerline_precmd() {
-#  for s in "${precmd_functions[@]}"; do
-#    if [ "$s" = "powerline_precmd" ]; then
-#      return
-#    fi
-#  done
-#  precmd_functions+=(powerline_precmd)
-#}
-#
-#if [ "$TERM" != "linux" ]; then
-#    install_powerline_precmd
-#fi
-
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
@@ -119,7 +99,9 @@ alias config='/usr/bin/git --git-dir=$HOME/.myconf/ --work-tree=$HOME'
 alias vim=nvim
 alias vi=nvim
 alias v=nvim
-alias k='/usr/local/bin/kubectl'
+alias k='/usr/bin/kubectl'
+alias pbcopy='xclip -selection clipboard'
+alias pbpaste='xclip -selection clipboard -o'
 
 # -------------------------------------------------------------------
 # Git
@@ -158,12 +140,12 @@ function kssh() {
    ssh -i ~/.ssh/kubernetes.pem admin@$ip
 }
 
-complete -o nospace -C /usr/local/bin/terraform terraform
+complete -o nospace -C /usr/bin/terraform terraform
+# alias python=/usr/local/bin/python3.8
+export PATH="/usr/local/opt/node@12/bin:$PATH"
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/pbeam/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/pbeam/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f '/home/patrickb/google-cloud-sdk/path.zsh.inc' ]; then . '/home/patrickb/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/pbeam/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/pbeam/google-cloud-sdk/completion.zsh.inc'; fi
-alias python=/usr/local/bin/python3.8
-export PATH="/usr/local/opt/node@12/bin:$PATH"
+if [ -f '/home/patrickb/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/patrickb/google-cloud-sdk/completion.zsh.inc'; fi
